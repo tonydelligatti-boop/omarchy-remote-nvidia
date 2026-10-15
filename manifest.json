@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "remote-nvidia",
+  "name": "Remote NVIDIA",
+  "version": "1.0.0",
+  "author": "Tony Delligatti",
+  "license": "MIT",
+  "description": "Live NVIDIA cards from a machine you can SSH to. Temperatures, load, power, and VRAM, polled from nvidia-smi.",
+  "kinds": ["bar-widget"],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Remote NVIDIA",
+    "description": "GeForce cards with temperature, load, power, and VRAM, read over SSH.",
+    "category": "System",
+    "aliases": ["gpu", "nvidia", "nvidia-smi"],
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "host": "",
+      "user": "",
+      "identityFile": "",
+      "pollMs": 2000,
+      "warnC": 83,
+      "hotC": 90
+    },
+    "schema": [
+      { "key": "host", "type": "string", "label": "Host", "defaultValue": "" },
+      { "key": "user", "type": "string", "label": "SSH user", "defaultValue": "" },
+      { "key": "identityFile", "type": "string", "label": "SSH key path", "defaultValue": "" },
+      { "key": "pollMs", "type": "number", "label": "Poll interval (ms)", "defaultValue": 2000 },
+      { "key": "warnC", "type": "number", "label": "Warn temperature (°C)", "defaultValue": 83 },
+      { "key": "hotC", "type": "number", "label": "Hot temperature (°C)", "defaultValue": 90 }
+    ]
+  }
+}
