@@ -26,7 +26,13 @@ Leave the key unset when your normal SSH config already reaches that host. To us
 ssh -o BatchMode=yes yourname@gpu-box nvidia-smi
 ```
 
-The remote machine needs `nvidia-smi` on the default `PATH`.
+The remote machine needs `nvidia-smi` on the default `PATH`. This machine needs `ssh`, which Omarchy already has. The widget does not change `shell.json` on its own. You add the host and user.
+
+## Remove
+
+```bash
+omarchy plugin remove remote-nvidia
+```
 
 ## How to read it
 
