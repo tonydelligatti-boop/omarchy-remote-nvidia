@@ -114,6 +114,7 @@ BarWidget {
       id: valueText
       anchors.right: parent.right
       anchors.verticalCenter: parent.verticalCenter
+      textFormat: Text.PlainText
       text: stat.value
       color: stat.valueColor
       font.family: root.fontFamily
@@ -159,6 +160,7 @@ BarWidget {
               spacing: Style.space(8)
 
               Text {
+                textFormat: Text.PlainText
                 text: probe.host || "NVIDIA"
                 color: root.fg
                 font.family: root.fontFamily
@@ -177,6 +179,7 @@ BarWidget {
               }
 
               Text {
+                textFormat: Text.PlainText
                 text: probe.ageLabel
                 color: root.muted
                 font.family: root.fontFamily
@@ -186,6 +189,7 @@ BarWidget {
             }
 
             Text {
+              textFormat: Text.PlainText
               text: {
                 var gpu = probe.gpus.length > 0 ? probe.gpus[0] : null
                 var name = gpu && gpu.name ? gpu.name.replace(/^NVIDIA\s+/i, "") : "GeForce"
@@ -220,6 +224,7 @@ BarWidget {
         Text {
           width: parent.width
           wrapMode: Text.WordWrap
+          textFormat: Text.PlainText
           text: probe.watch.text
           color: Model.colorFor(probe.watch.level)
           font.family: root.fontFamily
@@ -232,6 +237,7 @@ BarWidget {
           visible: probe.lastError !== "" && !probe.linked
           width: parent.width
           wrapMode: Text.WordWrap
+          textFormat: Text.PlainText
           text: probe.lastError
           color: root.muted
           font.family: root.fontFamily
@@ -256,6 +262,7 @@ BarWidget {
               spacing: Style.space(6)
 
               Text {
+                textFormat: Text.PlainText
                 text: "GPU " + modelData.index + (modelData.bus ? "   ·   " + modelData.bus : "")
                 color: root.fg
                 font.family: root.fontFamily
@@ -323,6 +330,7 @@ BarWidget {
               Text {
                 width: parent.width
                 wrapMode: Text.WordWrap
+                textFormat: Text.PlainText
                 text: Model.procSummary(modelData.procs) || (probe.linked ? "no compute process" : "")
                 color: root.fg
                 font.family: root.fontFamily

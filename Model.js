@@ -415,11 +415,16 @@ function tooltip(host, gpus, status, updatedAt, now, error) {
   return lines.join("\n")
 }
 
+function stripMarkup(text) {
+  return String(text || "").replace(/<[^>]*>/g, "").replace(/[<>&]/g, "")
+}
+
 function cleanError(stderr, code, parseError) {
-  var line = String(stderr || "").replace(/\s+/g, " ").replace(/^\s+|\s+$/g, "")
+  var line = stripMarkup(stderr).replace(/\s+/g, " ").replace(/^\s+|\s+$/g, "")
   if (line.length > 160) line = line.slice(0, 160)
   if (line) return line
-  if (parseError) return parseError
+  var fallback = stripMarkup(parseError).replace(/\s+/g, " ").replace(/^\s+|\s+$/g, "")
+  if (fallback) return fallback
   if (code === -1) return "ssh did not start"
   return "ssh exited " + code
 }

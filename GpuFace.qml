@@ -306,6 +306,7 @@ Item {
           spacing: 1
 
           Text {
+            textFormat: Text.PlainText
             text: root.kicker
             color: "#b7b2a6"
             font.family: root.fontFamily
@@ -315,6 +316,7 @@ Item {
           }
 
           Text {
+            textFormat: Text.PlainText
             text: root.badge
             color: "#f4f1ea"
             font.family: root.fontFamily
@@ -347,6 +349,7 @@ Item {
           visible: !root.hero
           anchors.left: parent.left
           anchors.verticalCenter: parent.verticalCenter
+          textFormat: Text.PlainText
           text: root.badge
           color: "#a39e92"
           font.family: root.fontFamily
